@@ -9,6 +9,7 @@ import IconButton from './components/IconButton';
 import CircleButton from './components/CircleButton';
 import EMOjiPicker from './components/EMOjiPicker';
 import EMOjiList from './components/EMOjiList';
+import EMOjiSticker from './components/EMOjiStcker';
 
 const PlaceholderImage = require('./assets/images/background-image.png');
 
@@ -17,7 +18,7 @@ export default function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showAppOptions, setShowAppOptions] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [pickedEMOji, setPickedEMOji] = useState();
+  const [pickedEMOji, setPickedEMOji] = useState(null);
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -50,6 +51,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         < ImageViewer placeholderImageSource={PlaceholderImage} selectedImage={selectedImage} />
+        <EMOjiSticker imageSize={40} stickerSource={pickedEMOji} />
       </View>
       {showAppOptions ? (
         <View style={styles.optionContainer}>
