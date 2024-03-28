@@ -8,6 +8,7 @@ import { useState } from 'react';
 import IconButton from './components/IconButton';
 import CircleButton from './components/CircleButton';
 import EMOjiPicker from './components/EMOjiPicker';
+import EMOjiList from './components/EMOjiList';
 
 const PlaceholderImage = require('./assets/images/background-image.png');
 
@@ -16,6 +17,7 @@ export default function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showAppOptions, setShowAppOptions] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [pickedEMOji, setPickedEMOji] = useState();
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -64,7 +66,7 @@ export default function App() {
         </View>    
        )}
       <EMOjiPicker isVisible={isModalVisible} onClose={onModalClose}>
-        { /*TODO: chamar a lista com os emojis aqui*/}
+        <EMOjiList onSelect={setPickedEMOji} onCloseModal={onModalClose} />
       </EMOjiPicker>
       
       <StatusBar style="auto" />

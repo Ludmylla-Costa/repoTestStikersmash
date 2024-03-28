@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, FlatList, Image, Platform, Pressable } from "react-native";
 
-export default function EMOjiList() {
+export default function EMOjiList({ onSelect, onCloseModal }) {
     const [emoji] = useState([
         require('../assets/images/emoji1.png'),
         require('../assets/images/emoji2.png'),
@@ -17,7 +17,7 @@ export default function EMOjiList() {
             showsHorizontalScrollIndicator={Platform.OS === 'web'}
             data={emoji}
             contentContainerStyle={styles.listContainer}
-            renderItem={(item, index) => (
+            renderItem={({ item, index }) => (
                 <Pressable onPress={() => {
                     onSelect(item);
                     onCloseModal();
