@@ -9,7 +9,7 @@ import IconButton from './components/IconButton';
 import CircleButton from './components/CircleButton';
 import EMOjiPicker from './components/EMOjiPicker';
 import EMOjiList from './components/EMOjiList';
-import EMOjiSticker from './components/EMOjiStcker';
+import EMOjiSticker from './components/EMOjiSticker';
 
 const PlaceholderImage = require('./assets/images/background-image.png');
 
